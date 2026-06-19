@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Soul Serum ATX — Austin, TX</title>
+<meta name="description" content="Soul Serum ATX is a female-fronted original hard rock band from Austin, Texas. Heavy riffs, powerhouse vocals, real songs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0d;
+    --bg-deep: #050506;
+    --steel: #c7ced6;
+    --steel-dim: #7c8590;
+    --bone: #f2ede4;
+    --ember: #ff3d1f;
+    --ember-light: #ff8a3d;
+    --volt: #4fa3ff;
+    --volt-dim: #1e4a7a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--bone);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  a { color: var(--volt); text-decoration: none; }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--volt); outline-offset: 3px; }
+
+  .display {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  /* ---------- Ambient background canvas ---------- */
+  #fx {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6vh 5vw 8vh;
+    z-index: 1;
+  }
+
+  .hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 900px;
+    height: 900px;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, rgba(255,61,31,0.10) 0%, rgba(79,163,255,0.06) 40%, transparent 70%);
+    z-index: -1;
+    animation: pulse-glow 6s ease-in-out infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 0.7; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.08); }
+  }
+
+  .logo-mark {
+    max-width: min(560px, 80vw);
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 0 40px rgba(79,163,255,0.25)) drop-shadow(0 0 70px rgba(255,61,31,0.15));
+  }
+
+  .hero-tagline {
+    margin-top: 1.75rem;
+    font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+    color: var(--steel);
+    letter-spacing: 0.08em;
+    max-width: 36ch;
+  }
+
+  .hero-tagline .accent { color: var(--ember-light); }
+
+  .scroll-cue {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--steel-dim);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .scroll-cue svg {
+    width: 18px;
+    height: 18px;
+    animation: bob 2s ease-in-out infinite;
+  }
+
+  @keyframes bob {
+    0%, 100% { transform: translateY(0); opacity: 0.5; }
+    50% { transform: translateY(6px); opacity: 1; }
+  }
+
+  /* ---------- Crack divider ---------- */
+  .divider {
+    position: relative;
+    height: 80px;
+    z-index: 1;
+  }
+  .divider svg { width: 100%; height: 100%; display: block; }
+
+  /* ---------- About section ---------- */
+  .about {
+    position: relative;
+    z-index: 1;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2rem 6vw 10vh;
+    text-align: center;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--ember-light);
+    margin-bottom: 1.25rem;
+  }
+
+  .eyebrow::before,
+  .eyebrow::after {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--ember);
+    opacity: 0.6;
+  }
+
+  .about h2 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-bottom: 1.5rem;
+    line-height: 1.15;
+  }
+
+  .about p {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--steel);
+    margin-bottom: 1.4rem;
+  }
+
+  .about p:last-of-type { margin-bottom: 0; }
+
+  .about strong {
+    color: var(--bone);
+    font-weight: 600;
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid rgba(124, 133, 144, 0.15);
+    padding: 3rem 5vw 2.5rem;
+    text-align: center;
+  }
+
+  .footer-city {
+    font-size: 0.78rem;
+    letter-spacing: 0.25em;
+    color: var(--steel-dim);
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+  }
+
+  .social-row {
+    display: flex;
+    justify-content: center;
+    gap: 1.75rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .social-row a {
+    color: var(--steel);
+    transition: color 0.25s ease, filter 0.25s ease;
+    display: inline-flex;
+  }
+
+  .social-row a:hover { color: var(--volt); filter: drop-shadow(0 0 8px rgba(79,163,255,0.5)); }
+
+  .social-row svg { width: 22px; height: 22px; }
+
+  .footer-fine {
+    font-size: 0.75rem;
+    color: var(--steel-dim);
+    opacity: 0.6;
+  }
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 480px) {
+    .hero { padding: 5vh 6vw 7vh; }
+    .about { padding: 1.5rem 7vw 8vh; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="fx"></canvas>
+
+<section class="hero">
+  <div class="hero-glow"></div>
+  <img class="logo-mark" src="logo.gif" alt="Soul Serum ATX — winged heart emblem">
+  <p class="hero-tagline">Original hard rock, forged in <span class="accent">Austin, Texas</span>.</p>
+
+  <div class="scroll-cue">
+    <span>The story</span>
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+  </div>
+</section>
+
+<div class="divider">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none">
+    <polyline points="0,40 180,40 220,15 260,55 300,40 1200,40" fill="none" stroke="#4fa3ff" stroke-width="1.5" opacity="0.35"/>
+  </svg>
+</div>
+
+<section class="about" id="about">
+  <span class="eyebrow">Who we are</span>
+  <h2>Music that hits hard,<br>cuts deep, and leaves you wanting more.</h2>
+  <p>
+    <strong>Soul Serum ATX</strong> is a female-fronted original hard rock band forged in the live music capital of the world — Austin, Texas. We write, record, and perform music that hits hard, cuts deep, and leaves you wanting more.
+  </p>
+  <p>
+    With powerhouse vocals at the front and a tight, battle-tested lineup behind her, Soul Serum ATX brings an intensity to every stage that you can feel in your chest. Our sound is rooted in hard rock — heavy riffs, driving rhythms, and melodies that stay with you long after the last note fades.
+  </p>
+  <p>
+    We're not playing covers — every song is an original, born from real experiences and real emotion. <strong>Austin is our home, and we're here to make noise.</strong>
+  </p>
+</section>
+
+<footer>
+  <div class="footer-city">Austin, Texas</div>
+  <div class="social-row">
+    <a href="https://www.facebook.com/SoulSerumATX" target="_blank" rel="noopener" aria-label="Soul Serum ATX on Facebook">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.6 9.87v-6.98H7.9V12h2.5V9.8c0-2.47 1.47-3.84 3.72-3.84 1.08 0 2.2.19 2.2.19v2.43h-1.24c-1.22 0-1.6.76-1.6 1.54V12h2.72l-.43 2.89h-2.29v6.98A10 10 0 0 0 22 12z"/></svg>
+    </a>
+  </div>
+  <div class="footer-fine">&copy; 2026 Soul Serum ATX. All rights reserved.</div>
+</footer>
+
+<script>
+(function() {
+  var canvas = document.getElementById('fx');
+  var ctx = canvas.getContext('2d');
+  var w, h, dpr;
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = window.innerWidth;
+    h = window.innerHeight;
+    canvas.width = w * dpr;
+    canvas.height = h * dpr;
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
+
+  if (reduceMotion) return;
+
+  /* Embers rising */
+  var embers = [];
+  var EMBER_COUNT = Math.min(36, Math.floor(w / 32));
+
+  function spawnEmber() {
+    return {
+      x: Math.random() * w,
+      y: h + Math.random() * 100,
+      r: 1 + Math.random() * 2.2,
+      speed: 0.25 + Math.random() * 0.55,
+      drift: (Math.random() - 0.5) * 0.4,
+      flicker: Math.random() * Math.PI * 2,
+      hueShift: Math.random()
+    };
+  }
+  for (var i = 0; i < EMBER_COUNT; i++) {
+    var e = spawnEmber();
+    e.y = Math.random() * h;
+    embers.push(e);
+  }
+
+  /* Lightning crack in corners */
+  var lightningTimer = 0;
+  var nextStrike = 2000 + Math.random() * 4000;
+  var flashAlpha = 0;
+  var boltSeed = null;
+
+  function makeBolt(corner) {
+    var pts = [];
+    var startX = corner === 'left' ? -20 : w + 20;
+    var startY = Math.random() * h * 0.4;
+    var x = startX, y = startY;
+    var dirX = corner === 'left' ? 1 : -1;
+    pts.push({x: x, y: y});
+    var segments = 6 + Math.floor(Math.random() * 4);
+    for (var s = 0; s < segments; s++) {
+      x += dirX * (40 + Math.random() * 70);
+      y += (Math.random() - 0.3) * 90;
+      pts.push({x: x, y: y});
+    }
+    return pts;
+  }
+
+  function drawBolt(pts, alpha) {
+    ctx.save();
+    ctx.strokeStyle = 'rgba(150, 200, 255, ' + alpha + ')';
+    ctx.lineWidth = 1.4;
+    ctx.shadowColor = 'rgba(79,163,255,0.8)';
+    ctx.shadowBlur = 12;
+    ctx.beginPath();
+    ctx.moveTo(pts[0].x, pts[0].y);
+    for (var i = 1; i < pts.length; i++) ctx.lineTo(pts[i].x, pts[i].y);
+    ctx.stroke();
+    ctx.restore();
+  }
+
+  var lastTime = performance.now();
+
+  function tick(now) {
+    var dt = now - lastTime;
+    lastTime = now;
+    ctx.clearRect(0, 0, w, h);
+
+    /* embers */
+    ctx.save();
+    for (var i = 0; i < embers.length; i++) {
+      var em = embers[i];
+      em.y -= em.speed;
+      em.x += em.drift;
+      em.flicker += 0.05;
+      if (em.y < -10) {
+        embers[i] = spawnEmber();
+        embers[i].y = h + 10;
+        continue;
+      }
+      var flick = 0.5 + 0.5 * Math.sin(em.flicker);
+      var alpha = 0.25 + flick * 0.35;
+      var grad = ctx.createRadialGradient(em.x, em.y, 0, em.x, em.y, em.r * 4);
+      grad.addColorStop(0, 'rgba(255, ' + (120 + em.hueShift * 60) + ', 60, ' + alpha + ')');
+      grad.addColorStop(1, 'rgba(255, 61, 31, 0)');
+      ctx.fillStyle = grad;
+      ctx.beginPath();
+      ctx.arc(em.x, em.y, em.r * 4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+    ctx.restore();
+
+    /* lightning */
+    lightningTimer += dt;
+    if (lightningTimer > nextStrike) {
+      lightningTimer = 0;
+      nextStrike = 3500 + Math.random() * 5000;
+      boltSeed = {
+        bolt: makeBolt(Math.random() < 0.5 ? 'left' : 'right'),
+        life: 0,
+        maxLife: 220 + Math.random() * 120
+      };
+    }
+    if (boltSeed) {
+      boltSeed.life += dt;
+      var t = boltSeed.life / boltSeed.maxLife;
+      if (t < 1) {
+        var a = t < 0.15 ? t / 0.15 : (1 - (t - 0.15) / 0.85);
+        drawBolt(boltSeed.bolt, Math.max(0, a * 0.7));
+      } else {
+        boltSeed = null;
+      }
+    }
+
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
+
+</body>
+</html>
